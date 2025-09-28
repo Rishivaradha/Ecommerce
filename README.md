@@ -96,7 +96,16 @@ src/
 - `npm run lint` - Run ESLint for code linting
 
 ## 📸 Screenshots
-
+<p align="center">
+  <img src="public/1st.png" width="500" height="500" />
+  <img src="public/2nd.png" width="500" height="500" />
+  <img src="public/3rd.png" width="500" height="500" />
+  <img src="public/4th.png" width="500" height="500" />
+  <img src="public/5th.png" width="500" height="500" />
+  <img src="public/6th.png" width="500" height="500" />
+  <img src="public/7th.png" width="500" height="500" />
+  <img src="public/8th.png" width="500" height="500" />
+</p>
 
 ---
 
