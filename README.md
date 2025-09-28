@@ -15,17 +15,17 @@ A modern, full-featured ecommerce dashboard built with Next.js 15, React 19, and
 - **⚡ Performance** - Powered by Next.js 15 with Turbopack
 - **🔄 State Management** - Zustand for efficient state handling
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework:** Next.js 15
-- **React Version:** React 19
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Charts:** Chart.js + React Chart.js 2
-- **State Management:** Zustand
-- **Icons:** Lucide React
-- **Build Tool:** Turbopack
-- **Linting:** ESLint 9
+## 📸 Screenshots
+<p align="center">
+  <img src="public/1st.png" width="500" height="500" />
+  <img src="public/2nd.png" width="500" height="500" />
+  <img src="public/3rd.png" width="500" height="500" />
+  <img src="public/4th.png" width="500" height="500" />
+  <img src="public/5th.png" width="500" height="500" />
+  <img src="public/6th.png" width="500" height="500" />
+  <img src="public/7th.png" width="500" height="500" />
+  <img src="public/8th.png" width="500" height="500" />
+</p>
 
 ## 📋 Prerequisites
 
@@ -95,17 +95,18 @@ src/
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint for code linting
 
-## 📸 Screenshots
-<p align="center">
-  <img src="public/1st.png" width="500" height="500" />
-  <img src="public/2nd.png" width="500" height="500" />
-  <img src="public/3rd.png" width="500" height="500" />
-  <img src="public/4th.png" width="500" height="500" />
-  <img src="public/5th.png" width="500" height="500" />
-  <img src="public/6th.png" width="500" height="500" />
-  <img src="public/7th.png" width="500" height="500" />
-  <img src="public/8th.png" width="500" height="500" />
-</p>
+## 🛠️ Tech Stack
+
+- **Frontend Framework:** Next.js 15
+- **React Version:** React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Charts:** Chart.js + React Chart.js 2
+- **State Management:** Zustand
+- **Icons:** Lucide React
+- **Build Tool:** Turbopack
+- **Linting:** ESLint 9
+
 
 ---
 
