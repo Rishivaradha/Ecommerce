@@ -95,49 +95,9 @@ src/
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint for code linting
 
-## 🚀 Deployment
+## 📸 Screenshots
 
-### Vercel (Recommended)
-
-The easiest way to deploy this Next.js app is using [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
-
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically detect it's a Next.js project
-3. Your app will be deployed with zero configuration
-
-### Other Platforms
-
-This application can also be deployed on:
-- Netlify
-- Railway
-- AWS Amplify
-- Digital Ocean App Platform
-
-Refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for detailed instructions.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-If you have any questions or need support, please open an issue in the GitHub repository.
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Charts powered by [Chart.js](https://www.chartjs.org/)
-- Icons by [Lucide](https://lucide.dev/)
 
 ---
 
-**Happy coding! 🎉**
+
