@@ -26,6 +26,7 @@ const Store = {
     const next = cloneState(Store.state);
     updater(next);
     Store.state = next;
+    Store.saveSession();
     Store.subscribers.forEach((fn) => fn(Store.state));
   },
   subscribe(fn) {
@@ -37,7 +38,31 @@ const Store = {
   getState() {
     return Store.state;
   },
-  persist() {}
+  persist() {},
+  loadSession() {
+    try {
+      const saved = sessionStorage.getItem('estore_session');
+      if (saved) {
+        const session = JSON.parse(saved);
+        Store.state.user = session.user;
+        Store.state.cart = session.cart || [];
+        Store.state.orders = session.orders || [];
+      }
+    } catch (e) {
+      console.warn('Failed to load session', e);
+    }
+  },
+  saveSession() {
+    try {
+      sessionStorage.setItem('estore_session', JSON.stringify({
+        user: Store.state.user,
+        cart: Store.state.cart,
+        orders: Store.state.orders
+      }));
+    } catch (e) {
+      console.warn('Failed to save session', e);
+    }
+  }
 };
 
 const formatCurrency = (value) =>
@@ -149,6 +174,7 @@ const Actions = {
       state.user = null;
       state.cart = [];
     });
+    sessionStorage.removeItem('estore_session');
   }
 };
 
@@ -980,6 +1006,7 @@ const pageInit = () => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+  Store.loadSession();
   const page = document.body.dataset.page || "home";
   if (!ensureAuth(page)) return;
   initHeader();
