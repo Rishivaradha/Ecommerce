@@ -2,8 +2,7 @@
 
 E-Store is a **fully static HTML/CSS/JavaScript** recreation of a modern e‑commerce dashboard, originally inspired by a **Next.js + React + Tailwind** project.  
 This version removes all frameworks and bundlers and focuses on a clean, performant, and responsive frontend suitable for demos, assessments, and static hosting.
-
-- **GitHub Repository:** `https://github.com/Rishivaradha/Ecommerce.git`  
+ 
 - **Live Demo (Vercel):** `https://e-store-rishivaradha.vercel.app/`
 
 ---
@@ -23,7 +22,7 @@ This version removes all frameworks and bundlers and focuses on a clean, perform
 - **Product Listing Grid**
   - Responsive card grid with fixed card sizing for visual consistency.
   - Shows category label, rating, short description, and formatted price.
-  - “Add to Cart” and “Buy Now” actions wired to the in‑memory store.
+  - "Add to Cart" and "Buy Now" actions wired to the in‑memory store.
 
 - **Shopping Cart**
   - Line items with thumbnail, name, description, category, and price.
@@ -47,7 +46,7 @@ This version removes all frameworks and bundlers and focuses on a clean, perform
   - Line chart: Orders per month.
   - Bar chart: Revenue per month.
   - Pie chart: Revenue by category.
-  - Shows a clear “No analytics yet” state when there are no session orders.
+  - Shows a clear "No analytics yet" state when there are no session orders.
 
 - **Clean UI Interactions & Animations**
   - Subtle hover lift on cards and buttons.
@@ -78,7 +77,7 @@ The static frontend **does not call any backend** – all data is loaded from `d
 - **Chart.js (via CDN)** – Line, bar, and pie charts on the analytics dashboard.
 - **Mock JSON** – `data.json` as the sole data source.
 
-No React, Next.js, Tailwind, TypeScript, Zustand, or bundlers are used in this static version.
+
 
 ---
 
@@ -188,22 +187,8 @@ You can also deploy this folder to any static hosting platform (Netlify, GitHub 
 
 ---
 
-## 7. Screenshots
 
-You can capture and store screenshots under `assets/screenshots/` and reference them here.
-
-```markdown
-![Homepage](./assets/screenshots/home.png)
-![Products](./assets/screenshots/products.png)
-![Cart](./assets/screenshots/cart.png)
-![Checkout](./assets/screenshots/checkout.png)
-![Orders](./assets/screenshots/orders.png)
-![Analytics](./assets/screenshots/analytics.png)
-```
-
----
-
-## 8. Purpose & Context
+## 7. Purpose & Context
 
 This static implementation of **E-Store – Static E-Commerce Frontend** was built as part of a **frontend assessment for ProU Technology**.
 
@@ -219,7 +204,7 @@ Goals:
 
 ---
 
-## 9. Notes for Evaluators
+## 8. Notes for Evaluators
 
 - **No Backend**
   - All logic runs purely on the client.
@@ -247,7 +232,7 @@ Goals:
 
 ---
 
-## 10. Further Reading / Internal Docs
+## 9. Further Reading / Internal Docs
 
 For more implementation detail:
 
