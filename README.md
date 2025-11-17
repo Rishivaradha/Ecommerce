@@ -3,7 +3,7 @@
 E-Store is a **fully static HTML/CSS/JavaScript** recreation of a modern e‑commerce dashboard, originally inspired by a **Next.js + React + Tailwind** project.  
 This version removes all frameworks and bundlers and focuses on a clean, performant, and responsive frontend suitable for demos, assessments, and static hosting.
  
-- **Live Demo (Vercel):** `https://e-store-rishivaradha.vercel.app/`
+- **Live Demo (Vercel):** `https://ecommerce-rho-livid-31.vercel.app/login.html`
 
 ---
 
