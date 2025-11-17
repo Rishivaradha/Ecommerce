@@ -1,0 +1,90 @@
+{
+  "colors": {
+    "--bg": "#f8fafc",
+    "--text": "#171717",
+    "--card": "#ffffff",
+    "--accent": "#0f172a",
+    "--accent-light": "#111827",
+    "--muted-text": "#4b5563",
+    "--border": "#e5e7eb",
+    "--shadow": "0 20px 25px -5px rgba(15, 23, 42, 0.15)",
+    "--success": "#22c55e",
+    "--warning": "#facc15",
+    "--info": "#3b82f6",
+    "--danger": "#ef4444",
+    "--badge-green-bg": "#ecfdf5",
+    "--badge-green-text": "#065f46",
+    "--badge-blue-bg": "#dbeafe",
+    "--badge-blue-text": "#1e40af",
+    "--badge-yellow-bg": "#fef3c7",
+    "--badge-yellow-text": "#92400e",
+    "--badge-red-bg": "#fee2e2",
+    "--badge-red-text": "#991b1b"
+  },
+  "spacing": {
+    "xxs": "0.25rem",
+    "xs": "0.5rem",
+    "sm": "0.75rem",
+    "md": "1rem",
+    "lg": "1.5rem",
+    "xl": "2rem",
+    "2xl": "3rem"
+  },
+  "radii": {
+    "base": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "pill": "999px"
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgba(15, 23, 42, 0.05)",
+    "md": "0 4px 10px rgba(15, 23, 42, 0.08)",
+    "lg": "0 10px 20px rgba(15, 23, 42, 0.12)",
+    "xl": "0 20px 40px rgba(15, 23, 42, 0.15)"
+  },
+  "grid": {
+    "container-max": "1200px",
+    "gutter-sm": "1rem",
+    "gutter-md": "1.5rem",
+    "gutter-lg": "2rem"
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "xxl": "1536px"
+  },
+  "fonts": {
+    "display": "'DotGothic16', 'JetBrains Mono', monospace",
+    "mono": "'JetBrains Mono', 'Geist Mono', monospace",
+    "sans": "'Geist Sans', 'Inter', 'system-ui', sans-serif"
+  },
+  "fontWeights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700
+  },
+  "fontSizes": {
+    "xs": "0.75rem",
+    "sm": "0.875rem",
+    "base": "1rem",
+    "lg": "1.125rem",
+    "xl": "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.875rem",
+    "4xl": "2.25rem"
+  },
+  "transitions": {
+    "fast": "150ms",
+    "default": "220ms",
+    "slow": "400ms"
+  },
+  "easings": {
+    "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "emphasized": "cubic-bezier(0.2, 0, 0, 1)"
+  }
+}
+

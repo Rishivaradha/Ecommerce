@@ -1,0 +1,359 @@
+{
+  "pages": {
+    "login": {
+      "path": "src/app/login/page.tsx",
+      "layout": [
+        "Full viewport center layout with gray background (`bg-gray-50`) and card form (`rounded-2xl shadow-xl border border-gray-100`)",
+        "Stacked form inputs with `space-y-6`, JetBrains Mono inline typography, and primary button `bg-black text-white rounded-lg`",
+        "Inline link to signup page plus error badge text"
+      ],
+      "interactions": [
+        "Email/password controlled inputs with validation via local `login` store action",
+        "Button disabled/loading state with text swap `Signing in...`",
+        "Link navigation to `/signup`"
+      ]
+    },
+    "signup": {
+      "path": "src/app/signup/page.tsx",
+      "layout": [
+        "Centered column with dot-matrix title, large form card (`card p-8`) and footer text",
+        "Inputs for full name, email, password, confirm password using `.input-field` utility",
+        "Animated loader `animate-spin` within submit button"
+      ],
+      "interactions": [
+        "Client-side validation for all fields with inline error text `text-red-500`",
+        "Simulated async submit (1500ms) then router push to `/login` with success query",
+        "Terms links styled as underline text"
+      ]
+    },
+    "home": {
+      "path": "src/app/page.tsx",
+      "layout": [
+        "Responsive container `container-responsive space-y-8 sm:space-y-12 py-4 sm:py-8`",
+        "Heading stack with dot matrix title and JetBrains subtitle",
+        "Category grid `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8` of cards containing image, title, helper text"
+      ],
+      "interactions": [
+        "Each `Link` wraps card with hover background change (`hover:bg-gray-50`) and image zoom `group-hover:scale-105`",
+        "Routes to `/category/[slug]` per category"
+      ]
+    },
+    "products": {
+      "path": "src/app/category/[slug]/page.tsx",
+      "layout": [
+        "Page title, subtitle centered",
+        "Filters block `bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6` containing search input, price slider, rating select arranged in responsive grid",
+        "Products grid `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6` of cards with image, metadata, price and CTA buttons"
+      ],
+      "interactions": [
+        "Search filter text input matches name/description",
+        "Range slider `type=range` controlling `maxPrice` up to 15000000 (₹150k)",
+        "Rating dropdown for thresholds (0,3,4,4.5)",
+        "Buttons call `addToCart` or `buyNow` then route to `/cart`"
+      ]
+    },
+    "cart": {
+      "path": "src/app/cart/page.tsx",
+      "layout": [
+        "Title block, then either empty state (icon, CTA) or two-column grid (items + summary)",
+        "Cart item card uses flex layout with thumbnail, details, quantity controls, remove button",
+        "Order summary card with totals"
+      ],
+      "interactions": [
+        "Quantity buttons call `updateQuantity`; manual input via number field",
+        "Remove action `removeFromCart` with trash icon",
+        "Proceed link to `/checkout`"
+      ]
+    },
+    "checkout": {
+      "path": "src/app/checkout/page.tsx",
+      "layout": [
+        "Grid of three cards: shipping address form, payment form, order summary",
+        "Inputs use shared Input component, grid splits for city/state and postal/country",
+        "Summary lists cart items with totals"
+      ],
+      "interactions": [
+        "Validations: required address fields, card number length, expiry format, CVV digits, or UPI ID contains '@'",
+        "Place order button shows loading text and triggers `placeOrder` then redirect to `/orders?placed=ID`",
+        "Error message `bg-red-50 text-red-600` for invalid states"
+      ]
+    },
+    "orders": {
+      "path": "src/app/orders/page.tsx",
+      "layout": [
+        "Title block with dot-matrix font",
+        "Optional success banner `card p-4 bg-green-50 border-green-200` when `placed` query exists",
+        "List of order cards containing header (id/date/status badge), progress timeline, line items, footer total"
+      ],
+      "interactions": [
+        "Progress tracker shows steps `processing → shipped → out_for_delivery → delivered` with animated progress line width",
+        "Status badges colored per state (green, blue, yellow, gray, red)",
+        "Data bound to Zustand orders array"
+      ]
+    },
+    "analytics": {
+      "path": "src/app/analytics/page.tsx",
+      "layout": [
+        "Title block, metrics grid (4 cards), charts grid (line, bar) plus pie card",
+        "Each chart inside `card p-6` with heading and fixed height container"
+      ],
+      "interactions": [
+        "Charts rendered via `react-chartjs-2` + Chart.js registration for line, bar, pie",
+        "Derived datasets: monthly orders, revenue per month, top categories, revenue growth, avg order value",
+        "Empty-state placeholders `No data available` when orders array empty"
+      ]
+    },
+    "browse/electronics": {
+      "paths": [
+        "src/app/browse/[slug]/page.tsx",
+        "src/app/electronics/page.tsx"
+      ],
+      "layout": [
+        "Category-specific grids similar to product page but with brand filter (browse)",
+        "Electronics uses curated ID set and CTA button"
+      ],
+      "interactions": [
+        "Brand dropdown filters by first word of product name",
+        "Add to cart button per card"
+      ]
+    }
+  },
+  "components": {
+    "Header": {
+      "description": "Sticky top navigation with store title, nav links (Home, Orders, Analytics, Cart), responsive layout, user avatar, logout button",
+      "props_state": "Derives `cartCount`, `user`, `logout` from Zustand; uses lucide-react icons",
+      "behaviors": [
+        "Cart badge positioned absolute with `text-[10px] bg-black text-white rounded-full`",
+        "Mobile nav uses icon buttons with hover background"
+      ]
+    },
+    "AuthWrapper": {
+      "description": "Layout guard verifying authentication, renders Header + page padding or bypass for login/signup",
+      "behaviors": [
+        "Redirects to `/login` when unauthenticated using `useRouter`",
+        "Wraps children with `max-w-6xl px-4 py-6` container"
+      ]
+    },
+    "Product Card/Grid": {
+      "description": "`.card p-4 sm:p-6 group flex flex-col` containing image, metadata, price, CTA buttons",
+      "behaviors": [
+        "Image containers use `aspect-square`, `border border-gray-200`, `group-hover:scale-105`",
+        "Buttons share `.btn-primary` style"
+      ]
+    },
+    "Category Cards": {
+      "description": "Home page cards with image preview and text center, triggered via `Link` group"
+    },
+    "Forms/Inputs": {
+      "description": "Reusable `.input-field` class across login, signup, checkout",
+      "details": "Padding `px-4 py-3`, border `border-gray-200`, focus ring `box-shadow: 0 0 0 2px black`"
+    },
+    "Buttons": {
+      "variants": {
+        "btn-primary": "White background, black border, radius 0, font-size 0.75rem, transition 0.2s, invert on hover",
+        "icon buttons": "Rounded, `hover:bg-gray-100`, used in header/cart quantity"
+      }
+    },
+    "Checkout Form Blocks": {
+      "description": "Two cards for address/payment with grid subsections; Input helper component defined inline at bottom",
+      "controls": "Payment select toggles credit-card fields vs. UPI"
+    },
+    "Order Timeline": {
+      "description": "Progress indicator with absolute background line and step circles reflecting status; widths animate via inline style `transition-all duration-500`",
+      "states": "processing, shipped, out_for_delivery, delivered"
+    },
+    "Cart Item Rows": {
+      "description": "Flex row with image, details, quantity stepper (Minus/Plus), remove button; uses lucide icons"
+    },
+    "Filter/Search Bar": {
+      "description": "Search text input, price slider, rating select in grid container with label styling"
+    },
+    "Slider": {
+      "description": "<input type=\"range\"> class `w-full`, min 0 max 15000000 step 100000 controlling currency value"
+    },
+    "Dropdown Rating Selector": {
+      "description": "<select> with `.input-field`, options as rating thresholds"
+    },
+    "Analytics Cards": {
+      "description": "Four metric cards showing totals with JetBrains text, simple layout"
+    },
+    "Charts": {
+      "line": "Sales Per Month (orders dataset, blue) with tension 0.4",
+      "bar": "Revenue Per Month (green) with border radius 4",
+      "pie": "Top Categories (color palette: red, orange, yellow, green, blue, violet)"
+    },
+    "Loading Skeleton": {
+      "description": "Global loading state `animate-pulse` grid of placeholders"
+    }
+  },
+  "styling": {
+    "fonts": {
+      "primary": "DotGothic16 (dot-matrix headings)",
+      "secondary": "JetBrains Mono (body text, numbers)",
+      "sans": "Geist Sans variable for general text",
+      "mono": "Geist Mono variable fallback"
+    },
+    "tailwind_utilities": [
+      "Layout: `container-responsive`, `space-y-*`, `grid grid-cols-*`, `flex items-center justify-between`, `mx-auto max-w-*`",
+      "Spacing: `py-4`, `py-6`, `py-8`, `px-4`, `px-6`, `p-6`, `gap-2`, `gap-4`, `gap-6`, `gap-8`",
+      "Typography: `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, `text-3xl`, `text-4xl`, `font-bold`, `font-semibold`",
+      "Color utilities: `bg-gray-50`, `bg-white`, `bg-green-50`, `bg-green-500`, `bg-blue-100`, `bg-yellow-100`, `bg-red-100`, `text-gray-600`, `text-gray-500`, `text-gray-400`, `text-green-800`, `text-blue-800`, `text-yellow-800`, `text-red-800`, `text-black`, `text-white`",
+      "Borders & radii: `border`, `border-gray-100`, `border-gray-200`, `rounded`, `rounded-lg`, `rounded-xl`, `rounded-2xl`, `rounded-full`",
+      "Shadows: `shadow-sm`, `shadow`, `shadow-xl`, `shadow-lg` (implicit from `card` hover)",
+      "Effects: `transition-all duration-200`, `group-hover:scale-105`, `hover:bg-gray-50`, `hover:bg-gray-100`, `hover:underline`",
+      "State classes: `disabled:opacity-50`, `disabled:cursor-not-allowed`, `line-clamp-2`, `supports-[backdrop-filter]:bg-white/60`",
+      "Responsive: `sm:`, `md:`, `lg:`, `xl:` breakpoints mirroring Tailwind defaults (640, 768, 1024, 1280)"
+    ],
+    "spacing_scale": {
+      "0.5rem": "gap-2 / py-2",
+      "0.75rem": "btn padding, `px-3 py-1.5`",
+      "1rem": "`p-4`, `py-4`",
+      "1.5rem": "`py-6`, `p-6`",
+      "2rem": "`p-8`, `py-8`"
+    },
+    "border_radii": {
+      "rounded": "4px",
+      "rounded-lg": "8px",
+      "rounded-xl": "12px",
+      "rounded-2xl": "16px",
+      "rounded-full": "50%"
+    },
+    "shadows": {
+      "shadow-sm": "0 1px 2px 0 rgba(0,0,0,0.05)",
+      "card_default": "0 1px 3px rgba(0,0,0,0.1)",
+      "card_hover": "0 4px 6px -1px rgba(0,0,0,0.1)",
+      "shadow-xl (login card)": "0 20px 25px -5px rgba(0,0,0,0.1)"
+    },
+    "colors": {
+      "background": "#f8fafc",
+      "foreground": "#171717",
+      "gray-50": "#f9fafb",
+      "gray-100": "#f3f4f6",
+      "gray-200": "#e5e7eb",
+      "gray-300": "#d1d5db",
+      "gray-400": "#9ca3af",
+      "gray-500": "#6b7280",
+      "gray-600": "#4b5563",
+      "black": "#000000",
+      "white": "#ffffff",
+      "green-50": "#ecfdf5",
+      "green-500": "#22c55e",
+      "green-600": "#16a34a",
+      "green-800": "#065f46",
+      "blue-100": "#dbeafe",
+      "blue-800": "#1e40af",
+      "yellow-100": "#fef3c7",
+      "yellow-800": "#92400e",
+      "red-50": "#fef2f2",
+      "red-100": "#fee2e2",
+      "red-500": "#ef4444",
+      "red-600": "#dc2626",
+      "red-800": "#991b1b"
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "transitions": {
+      "default": "all 0.2s ease-in-out",
+      "timeline": "width 0.5s ease",
+      "hover": "scale/opacity transitions via Tailwind"
+    }
+  },
+  "animations": {
+    "card_hover": {
+      "effect": "Scale to 1.02 with shadow elevation (`transform: scale(1.02)`, `box-shadow` change)",
+      "trigger": "hover on `.card`"
+    },
+    "image_zoom": {
+      "effect": "`group-hover:scale-105` on images inside category/product cards",
+      "duration": "Tailwind `duration-200` (200ms)"
+    },
+    "button_transition": {
+      "effect": "Color inversion on `.btn-primary` with `transition-all duration-200`"
+    },
+    "loading_skeleton": {
+      "effect": "`animate-pulse` for placeholders"
+    },
+    "spinner": {
+      "effect": "`animate-spin` border loader inside signup button"
+    },
+    "order_progress": {
+      "effect": "Progress bar width transitions via inline style + `transition-all duration-500`"
+    },
+    "touch_guard": {
+      "note": "Touch devices disable hover scale via media query in `globals.css`"
+    }
+  },
+  "logic": {
+    "state": {
+      "products": "seedProducts (empty) and `mixedCatalog` (primary data)",
+      "cart": "Array of { productId, quantity } persisted via zustand `persist` middleware",
+      "orders": "Array persisted; each order has id, createdAt, items, total, address, status",
+      "user": "Simple mock user with name/email derived from login email",
+      "filters": "searchQuery, selectedCategory, priceRange, minRating"
+    },
+    "actions": {
+      "setSearchQuery/Category/PriceRange/MinRating": "mutate filters",
+      "addToCart/buyNow": "increment quantity or push new item",
+      "removeFromCart": "filter cart array",
+      "updateQuantity": "set quantity or remove when <=0",
+      "clearCart": "empty cart",
+      "placeOrder": "build order with orderItems from `mixedCatalog`, compute totals, prepend to orders, clear cart, return id",
+      "updateOrderStatus": "mutate order status",
+      "login": "mock success when email/password truthy, sets user/isAuthenticated, returns boolean",
+      "logout": "clears user, auth state, cart",
+      "getMixedCatalog": "returns static mixed data"
+    },
+    "cart_logic": [
+      "Total price computed by summing `product.price * quantity` (prices stored as paise: divide by 100 for INR display)",
+      "Quantity controls guard against <=0 (removes item)",
+      "Order summary displays shipping as Free"
+    ],
+    "filters": [
+      "Category page uses search string to match product name/description case-insensitively",
+      "Price slider default 15,000,000 (₹150k) max, step 100k",
+      "Rating filter uses `>= minRating` comparisons"
+    ],
+    "checkout_logic": [
+      "Validates address fields non-empty",
+      "Credit card: 16-digit numeric, expiry MM/YY regex, CVV 3 digits",
+      "UPI: contains '@'",
+      "On success, builds order with status `processing`, pushes to store, redirects to orders page"
+    ],
+    "orders_logic": [
+      "Timeline steps derived from `ORDER_STEPS`, progress width percentage = index/(steps-1)",
+      "Status labels map to friendly names"
+    ],
+    "analytics_logic": [
+      "Sales per month: Map by month label (MMM YYYY) counting orders",
+      "Revenue per month: Sum totals per month for bar chart",
+      "Top categories: Sum order item totals per category, sorted desc, limited colors array",
+      "Revenue growth rate: compare current month vs previous month revenue; fallback 100% if previous 0 and current >0",
+      "Avg order value: total revenue / number of orders",
+      "Empty state returns dataset skeleton (no labels/data) so Chart.js renders gracefully"
+    ],
+    "auth_flow": [
+      "AuthWrapper prevents access to non-auth routes until login sets `isAuthenticated` true",
+      "Login uses simulated delay, sets error string for invalid credentials (currently always success when fields filled)"
+    ]
+  },
+  "assets": {
+    "public_images": [
+      "1st.png – screenshot asset",
+      "2nd.png – screenshot asset",
+      "3rd.png – screenshot asset",
+      "4th.png – screenshot asset",
+      "5th.png – screenshot asset",
+      "6th.png – screenshot asset",
+      "7th.png – screenshot asset",
+      "8th.png – screenshot asset",
+      "icons: file.svg, globe.svg, next.svg, vercel.svg, window.svg"
+    ],
+    "remote_media": "Category/product pages use external image URLs per product definitions in `mixedCatalog`"
+  }
+}
+

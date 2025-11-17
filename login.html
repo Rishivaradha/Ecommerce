@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login · E-Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="login">
+    <main class="auth-page">
+      <section class="auth-card fade-in">
+        <div class="hero" style="margin-bottom: 1.5rem">
+          <p class="dot-title">E-Store</p>
+          <h1>Welcome back</h1>
+          <p>Enter your credentials to continue.</p>
+        </div>
+        <div data-login-notice></div>
+        <form class="form-stack" data-login-form>
+          <label class="label" for="login-email">Email</label>
+          <input id="login-email" class="input" type="email" name="email" required placeholder="you@example.com" />
+
+          <label class="label" for="login-password">Password</label>
+          <input
+            id="login-password"
+            class="input"
+            type="password"
+            name="password"
+            required
+            placeholder="••••••••"
+            minlength="4"
+          />
+
+          <div class="error-text" data-login-error hidden></div>
+
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form>
+        <p style="margin-top: 1.5rem">
+          New here?
+          <a href="signup.html" class="dot-title" style="font-size: var(--font-sm)">Create an account</a>
+        </p>
+      </section>
+    </main>
+    <div class="toast" data-toast aria-live="polite"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
+

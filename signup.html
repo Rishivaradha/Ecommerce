@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup · E-Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="signup">
+    <main class="auth-page">
+      <section class="auth-card fade-in">
+        <div class="hero" style="margin-bottom: 1.5rem">
+          <p class="dot-title">E-Store</p>
+          <h1>Create account</h1>
+          <p>Sign up to access the dashboard.</p>
+        </div>
+        <form class="form-stack" data-signup-form>
+          <label class="label" for="signup-name">Full name</label>
+          <input id="signup-name" class="input" type="text" name="fullName" required minlength="2" placeholder="Aarav Mehta" />
+
+          <label class="label" for="signup-email">Email</label>
+          <input id="signup-email" class="input" type="email" name="email" required placeholder="you@example.com" />
+
+          <label class="label" for="signup-password">Password</label>
+          <input
+            id="signup-password"
+            class="input"
+            type="password"
+            name="password"
+            required
+            minlength="6"
+            placeholder="Create password"
+          />
+
+          <label class="label" for="signup-confirm">Confirm password</label>
+          <input
+            id="signup-confirm"
+            class="input"
+            type="password"
+            name="confirmPassword"
+            required
+            minlength="6"
+            placeholder="Re-enter password"
+          />
+
+          <div class="error-text" data-signup-error hidden></div>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            <span>Sign up</span>
+          </button>
+        </form>
+        <p style="margin-top: 1.5rem">
+          Already have an account?
+          <a href="login.html" class="dot-title" style="font-size: var(--font-sm)">Login</a>
+        </p>
+        <p class="subtitle" style="margin-top: 1rem">
+          By continuing you agree to our <a href="#" class="dot-title">Terms</a> & <a href="#" class="dot-title">Privacy</a>.
+        </p>
+      </section>
+    </main>
+    <div class="toast" data-toast aria-live="polite"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
